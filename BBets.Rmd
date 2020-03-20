@@ -2,7 +2,7 @@
 title: "BBets Project"
 author: "Arvin Bowens"
 date: "3/19/2020"
-output: html_document
+output: html_document 
 ---
 
 ```{r setup, include=FALSE}
@@ -22,14 +22,17 @@ Instuctor has done this 15 times,
 ```{r}
 days = 1:365
 
+nStudents = 25
+nBets = nStudents*15
+
 saveArray=vector('numeric')
 for(k in 1:1000){
   bank = 0
-  for(i in 1:525){
+  for(i in 1: nBets){
     sampleClass = sample(days, 35, replace = TRUE)
 
     repeats = length(unique(sampleClass))
-    if (repeats == 35) bank = bank - 2
+    if (repeats == nStudents) bank = bank - 3
     else bank = bank + 1
   }
 saveArray[k]= bank
